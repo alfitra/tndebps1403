@@ -24,8 +24,9 @@ class AppAsset extends AssetBundle {
 //        'css/style.css',
     ];
     public $js = [
+        'js/main.js',
         'js/sidebar_menu.js',
-        'js/jquery-3.1.1.min.js',
+//        'js/jquery-3.1.1.min.js',
         
     ];
     public $depends = [

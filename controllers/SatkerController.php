@@ -3,16 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Pegawai;
-use app\models\PegawaiSearch;
+use app\models\Satker;
+use app\models\SatkerSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * PegawaiController implements the CRUD actions for Pegawai model.
+ * SatkerController implements the CRUD actions for Satker model.
  */
-class PegawaiController extends Controller
+class SatkerController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,12 +30,12 @@ class PegawaiController extends Controller
     }
 
     /**
-     * Lists all Pegawai models.
+     * Lists all Satker models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new PegawaiSearch();
+        $searchModel = new SatkerSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class PegawaiController extends Controller
     }
 
     /**
-     * Displays a single Pegawai model.
+     * Displays a single Satker model.
      * @param integer $id
      * @return mixed
      */
@@ -57,32 +57,25 @@ class PegawaiController extends Controller
     }
 
     /**
-     * Creates a new Pegawai model.
+     * Creates a new Satker model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Pegawai();
+        $model = new Satker();
 
-        if ($model->load(Yii::$app->request->post())) {
-            if ($model->save()) {
-                Yii::$app->session->setFlash('success', 'Data Pegawai Berhasil Ditambah!');
-                return $this->redirect(['index']);
-            } else {
-                Yii::$app->session->setFlash('error', 'Data Pegawai Gagal Ditambah!');
-                return $this->refresh();
-            }
-//                return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->kode]);
         } else {
-            return $this->renderAjax('create', [
-                        'model' => $model,
+            return $this->render('create', [
+                'model' => $model,
             ]);
         }
     }
 
     /**
-     * Updates an existing Pegawai model.
+     * Updates an existing Satker model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -91,24 +84,17 @@ class PegawaiController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post())) {
-            if ($model->save()) {
-                Yii::$app->session->setFlash('success', 'Data Pegawai Berhasil Diupdate!');
-                return $this->redirect(['index']);
-//                return $this->redirect(['view', 'id' => $model->id]);
-            } else {
-                Yii::$app->session->setFlash('error', 'Data Pegawai Gagal Diupdate');
-                return $this->refresh();
-            }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->kode]);
         } else {
             return $this->render('update', [
-                        'model' => $model,
+                'model' => $model,
             ]);
         }
     }
 
     /**
-     * Deletes an existing Pegawai model.
+     * Deletes an existing Satker model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -121,31 +107,18 @@ class PegawaiController extends Controller
     }
 
     /**
-     * Finds the Pegawai model based on its primary key value.
+     * Finds the Satker model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Pegawai the loaded model
+     * @return Satker the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Pegawai::findOne($id)) !== null) {
+        if (($model = Satker::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
-    }
-    
-      public function getGolongan($id) {
-        $model = new Pegawai;
-        $pangkatGolongans = $model->getPangkatGolongan();
-        $golongan = "";
-        foreach ($pangkatGolongans as $pangkatGolongan) {
-            if ($pangkatGolongan['id'] == $id) {
-                $golongan = $pangkatGolongan['golongan'];
-            }
-        }
-//        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-        return $golongan;
     }
 }

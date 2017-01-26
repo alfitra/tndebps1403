@@ -101,32 +101,28 @@ AppAsset::register($this);
             <div id="sidebar-wrapper">
                 <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
                     <li class="active">
+                        <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-cog fa-stack-1x "></i></span> Master</a>
+                        <ul class="nav-pills nav-stacked" style="list-style-type:none;">
+                            <li><a href="<?= Url::to(['satker/index']) ?>"><span class="fa-stack fa-lg pull-left"><i class="fa fa-circle fa-stack-1x "></i></span>Satuan Kerja</a></li>
+                            <li><a href="<?= Url::to(['dasar/index']) ?>"><span class="fa-stack fa-lg pull-left"><i class="fa fa-circle fa-stack-1x "></i></span>Dasar Hukum</a></li>
+                            <li><a href="<?= Url::to(['anggaran/index']) ?>"><span class="fa-stack fa-lg pull-left"><i class="fa fa-circle fa-stack-1x "></i></span>Pembebanan Anggaran</a></li>
+                        </ul>
+                    </li>
+                    <li>
                         <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-dashboard fa-stack-1x "></i></span> Dashboard</a>
                     </li>
                     <li>
                         <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-envelope-open fa-stack-1x "></i></span>Surat Masuk</a>
                     </li>
                     <li>
-                        <a href="#"> <span class="fa-stack fa-lg pull-left"><i class="fa fa-envelope fa-stack-1x "></i></span>Surat Keluar</a>
-                    </li>
-                    <li>
                         <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-paper-plane fa-stack-1x "></i></span>Disposisi</a>
                     </li>
                     <li>
-                        <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-book fa-stack-1x "></i></span> Template Surat</a>
+                        <a href="#"> <span class="fa-stack fa-lg pull-left"><i class="fa fa-envelope fa-stack-1x "></i></span>Surat Keluar</a>
                         <ul class="nav-pills nav-stacked" style="list-style-type:none;">
                             <li><a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-circle fa-stack-1x "></i></span>Surat Dinas</a></li>
                             <li><a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-circle fa-stack-1x "></i></span>Surat Tugas</a></li>
                             <li><a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-circle fa-stack-1x "></i></span>Surat Perjadin</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-cog fa-stack-1x "></i></span> Master</a>
-                        <ul class="nav-pills nav-stacked" style="list-style-type:none;">
-                            <li><a href="<?= Url::to(['satker/index']) ?>"><span class="fa-stack fa-lg pull-left"><i class="fa fa-circle fa-stack-1x "></i></span>Satuan Kerja</a></li>
-                            <li><a href="<?= Url::to(['subject/index']) ?>"><span class="fa-stack fa-lg pull-left"><i class="fa fa-circle fa-stack-1x "></i></span>Subject Matter</a></li>
-                            <li><a href="<?= Url::to(['dasar/index']) ?>"><span class="fa-stack fa-lg pull-left"><i class="fa fa-circle fa-stack-1x "></i></span>Dasar Hukum</a></li>
-                            <li><a href="<?= Url::to(['anggaran/index']) ?>"><span class="fa-stack fa-lg pull-left"><i class="fa fa-circle fa-stack-1x "></i></span>Pembebanan Anggaran</a></li>
                         </ul>
                     </li>
                     <li>
